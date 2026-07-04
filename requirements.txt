@@ -1,0 +1,6 @@
+# ASCEND core dependencies
+# Tested with Python 3.10.18, NumPy 2.2.6, SciPy 1.14.0, and pandas 2.3.2.
+
+numpy>=2.0
+scipy>=1.14
+pandas>=2.0
