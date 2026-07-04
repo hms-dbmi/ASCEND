@@ -1,6 +1,6 @@
 # ASCEND
 
-ASCEND is a Python tool for gene-level association testing from observed *de novo* variation. The pipeline converts annotated variant-level observations into cohort-level summary statistics, adds packaged mutation-rate reference annotations, computes component association statistics, combines evidence across variant classes, and performs weighted false-discovery rate control.
+ASCEND (Association Statistics for Clustering and ENrichment of De novo variants) is a Python tool for gene-level association testing from observed *de novo* variation. The pipeline converts annotated variant-level observations into cohort-level summary statistics, adds packaged mutation-rate reference annotations, computes component association statistics, combines evidence across variant classes, and performs weighted false-discovery rate control.
 
 ## Repository structure
 
