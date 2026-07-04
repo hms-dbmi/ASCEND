@@ -9,6 +9,9 @@ from VCF-like variant input;
 from precomputed per-gene summary statistics;
 using the chi-square clustering approximation;
 using the permutation-based clustering approximation.
+
+
+
 Running the example
 
 From this directory, run:
