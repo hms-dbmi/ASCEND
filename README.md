@@ -88,7 +88,7 @@ ASCEND_tool/data/
 After adding the reference files, check the installation with:
 
 ```bash
-python ASCEND_tool/check_setup.py
+python check_setup.py
 ```
 
 ## Basic usage
