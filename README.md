@@ -1,24 +1,20 @@
 # ASCEND
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21249781.svg)](https://doi.org/10.5281/zenodo.21249781)
+
 ASCEND (Association Statistics for Clustering and ENrichment of De novo variants) is a Python tool for gene-level association testing from observed *de novo* variation. The pipeline converts annotated variant-level observations into cohort-level summary statistics, adds packaged mutation-rate reference annotations, computes component association statistics, combines evidence across variant classes, and performs weighted false-discovery rate control.
 
 ## Repository structure
 
 ```text
-ASCEND_tool/
+ASCEND/
   README.md
-  LICENSE
   requirements.txt
-  .gitignore
+  check_setup.py
 
   data/
-    dominant_genes_ENS.txt
-    gene_wFDR_weights_Sfacs50_quant.tsv
-    Uprod_dists.txt.gz
-    ALLVARS_MR_dist_by_pos5.txt.gz
-    ENS_ID2Gene_ID.txt.gz
-    BY_GENE_MR_5.txt.gz
-    muttargs5_noOL_RQC_format.txt.gz
+    README.md
+    # large reference files downloaded from Zenodo
 
   src/
     ASCEND_main.py
@@ -27,11 +23,16 @@ ASCEND_tool/
     statistics.py
     combine.py
     fdr.py
-    check_setup.py
+
+  diag/
+    ASCEND_Diag.py
+    README.md
+    # ASCEND-Diag reference cohort files
 
   example/
     test_vars.vcf.gz
     lazy-test.sh
+    README.md
 ```
 
 ## Installation
@@ -59,37 +60,51 @@ The analyses described in the manuscript were run using Python 3.10.18 with NumP
 
 ## Reference data
 
-ASCEND requires packaged reference files in the `data/` directory. These files include variant annotations, gene-level mutation-rate expectations, per-position mutation-rate coordinates, gene-symbol mappings, and files used for weighted or censored false-discovery rate control.
-
-Expected files:
+ASCEND requires large packaged reference files that are **not stored in this GitHub repository**. The GitHub repository contains the source code, documentation, and toy example only. To run ASCEND on real data, download the ASCEND data archive from Zenodo:
 
 ```text
-dominant_genes_ENS.txt
-gene_wFDR_weights_Sfacs50_quant.tsv
-Uprod_dists.txt.gz
-ALLVARS_MR_dist_by_pos5.txt.gz
-ENS_ID2Gene_ID.txt.gz
-BY_GENE_MR_5.txt.gz
-muttargs5_noOL_RQC_format.txt.gz
+https://doi.org/10.5281/zenodo.21249781
 ```
 
-Large reference files are not intended to be stored directly in the GitHub repository. Download the ASCEND reference-data bundle from:
+The Zenodo record contains `ASCEND_data_dir.zip`, which includes the complete `data/` directory required by the ASCEND pipeline.
+
+After cloning the repository, download and unpack the data archive into the repository root:
+
+```bash
+git clone https://github.com/hms-dbmi/ASCEND.git
+cd ASCEND
+
+# Download ASCEND_data_dir.zip from Zenodo, then run:
+unzip ASCEND_data_dir.zip
+```
+
+After unpacking, the repository should contain:
 
 ```text
-TODO: add Zenodo/Figshare/Dataverse DOI or URL
+ASCEND/
+  data/
+    dominant_genes_ENS.txt
+    gene_wFDR_weights_Sfacs50_quant.tsv
+    Uprod_dists.txt.gz
+    ALLVARS_MR_dist_by_pos5.txt.gz
+    ENS_ID2Gene_ID.txt.gz
+    BY_GENE_MR_5.txt.gz
+    muttargs5_noOL_RQC_format.txt.gz
 ```
 
-Then unpack or copy the files into:
-
-```text
-ASCEND_tool/data/
-```
-
-After adding the reference files, check the installation with:
+Check that the reference files and Python dependencies are available with:
 
 ```bash
 python check_setup.py
 ```
+
+If the setup check succeeds, the toy example can be run with:
+
+```bash
+cd example
+bash lazy-test.sh
+```
+
 
 ## Basic usage
 
