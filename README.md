@@ -162,4 +162,15 @@ cd example
 bash lazy-test.sh
 ```
 
+## Data availability
+
+The ASCEND Zenodo record contains:
+
+- `ASCEND_data_dir.zip`: reference files required to run ASCEND;
+- `GeneInfo.tsv.gz`: precomputed gene-level annotations and ASCEND association statistics;
+- `var_diag_probs.txt.gz`: precomputed ASCEND-Diag diagnostic probabilities for coding variants;
+- file-specific README files describing these tables.
+
+Zenodo DOI: https://doi.org/10.5281/zenodo.21249781
+
 This script tests ASCEND from VCF input, from precomputed summary statistics, and with alternative clustering approximations.
